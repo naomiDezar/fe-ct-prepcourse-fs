@@ -66,38 +66,27 @@ function agregarNumeros(arrayOfNums) {
    // El parámetro "arrayOfNums" debe ser un arreglo de números.
    // Suma todos los elementos y retorna el resultado.
    // Tu código:  
-   let suma = 0;
-   arrayOfNums.forEach(function(num){
-      suma += num;
-   });
-   return suma;
+   return arrayOfNums.reduce(function(suma, elemento){
+      return suma + elemento
+   })
 }
 
 function promedioResultadosTest(resultadosTest) {
    // El parámetro "resultadosTest" es un arreglo de números.
    // Itera (en un bucle) los elementos del arreglo y devuelve el promedio de las notas.
    // Tu código:
-   let suma = 0;
-
-   for(let i = 0; i < resultadosTest.length; i++){
-      suma += resultadosTest[i];
-   }
-   const promedio = suma / resultadosTest.length;
-   return promedio;
+  return agregarNumeros(resultadosTest) / resultadosTest.length
 }
 
 function numeroMasGrande(arrayOfNums) {
    // El parámetro "arrayOfNums" es un arreglo de números.
    // Retornar el número más grande.
    // Tu código:
-   let maximo = arrayOfNums[0];
-
-   arrayOfNums.forEach(function(num){
-      if(num > maximo){
-         maximo = num;
+   for(var i = 0; i < arrayOfNums.length; i++){
+      if(arrayOfNums[i] > arrayOfNums[i + 1]){
+         return arrayOfNums[i]
       }
-   });
-   return maximo;
+   }
 }
 
 function multiplicarArgumentos() {
@@ -141,7 +130,10 @@ function empiezaConNueve(num) {
    // Esta función recibe por parámetro un número.
    // Debe retornar true si el entero inicia con 9 y false en otro caso.
    // Tu código:
-   if(num === 9) return true;
+   //if(num === 9) return true;
+   //else return false;
+   num = num.toString()
+   if(num.charAt(0) === '9') return true;
    else return false;
 }
 
@@ -149,8 +141,12 @@ function todosIguales(array) {
    // Si todos los elementos del arreglo son iguales, retornar true.
    // Caso contrario retornar false.
    // Tu código:
-   if(array.length === array.length) return true;
-   else return false;
+   //if(array.length === array.length) return true;
+   //else return false;
+   for(var i = 0; i < array.length; i++){
+      if(array[i] === array[i + 1]) return true;
+      else return false;
+   }
 }
 
 function mesesDelAño(array) {
